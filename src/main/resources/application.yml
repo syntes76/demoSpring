@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+#datasource
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demo
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+#jpa
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    show-sql: false
+#logging
+logging:
+  file:
+    name: my_app.log
+    path: logs/
+  pattern:
+    file: "%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n"
+    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n"
+  level:
+    org.springframework.web: INFO
+    guru.springframework.controllers: INFO
+    org.hibernate: INFO
